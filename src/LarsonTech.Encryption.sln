@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LarsonTech.Encryption", "LarsonTech.Encryption\LarsonTech.Encryption.csproj", "{8A1EE2CC-A5CA-4237-A9D7-87BF2D1503DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LarsonTech.Encryption.MsTest", "LarsonTech.Encryption.MsTest\LarsonTech.Encryption.MsTest.csproj", "{E93EC5D6-1A69-4195-8D10-F3996EA6636A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A1EE2CC-A5CA-4237-A9D7-87BF2D1503DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1EE2CC-A5CA-4237-A9D7-87BF2D1503DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1EE2CC-A5CA-4237-A9D7-87BF2D1503DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1EE2CC-A5CA-4237-A9D7-87BF2D1503DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E93EC5D6-1A69-4195-8D10-F3996EA6636A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E93EC5D6-1A69-4195-8D10-F3996EA6636A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E93EC5D6-1A69-4195-8D10-F3996EA6636A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E93EC5D6-1A69-4195-8D10-F3996EA6636A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65989481-269A-414B-9FF5-AC8DA248DD51}
+	EndGlobalSection
+EndGlobal
