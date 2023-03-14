@@ -1,8 +1,7 @@
-﻿namespace Bct.Common.Encryption
+﻿namespace LarsonTech.Encryption;
+
+public interface IBinaryEncryptor
 {
-    public interface IBinaryEncryptor
-    {
-        byte[] DecryptBytes(byte[] encryptedValue);
-        byte[] EncryptBytes(byte[] data);
-    }
+    byte[] DecryptBytes(byte[] encryptedValue);
+    byte[] EncryptBytes(byte[] data);
 }

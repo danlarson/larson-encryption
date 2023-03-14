@@ -1,44 +1,40 @@
-﻿using System.Security.Cryptography;
-using System.Text;
+﻿namespace LarsonTech.Encryption;
 
-namespace Bct.Common.Encryption
+public static class CryptoUtility
 {
-    public static class CryptoUtility
+    /// <summary>
+    /// Creates a cryptographic key using RNGCryptoServiceProvider
+    /// </summary>
+    /// <param name="keyLength">The length of the key. Typically 32 (256 bytes)</param>
+    /// <returns>A cryptographically strong random byte array.</returns>
+    /// <remarks>RNGCryptoServiceProvider has qualified through FIPS 140-2 certification. 
+    /// Source: http://technet.microsoft.com/en-us/library/cc750357.aspx
+    /// </remarks>
+    public static byte[] CreateCryptographicKey(int keyLength)
     {
-        /// <summary>
-        /// Creates a cryptographic key using RNGCryptoServiceProvider
-        /// </summary>
-        /// <param name="keyLength">The length of the key. Typically 32 (256 bytes)</param>
-        /// <returns>A cryptographically strong random byte array.</returns>
-        /// <remarks>RNGCryptoServiceProvider has qualified through FIPS 140-2 certification. 
-        /// Source: http://technet.microsoft.com/en-us/library/cc750357.aspx
-        /// </remarks>
-        public static byte[] CreateCryptograhicKey(int keyLength)
+        using var crypto = RandomNumberGenerator.Create();
+        byte[] key = new byte[keyLength];
+        crypto.GetBytes(key);
+        return key;
+    }
+
+    private static readonly char[] Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+
+    public const int MaxSqlKey = 900;
+
+    public static string GetUniqueKey(int maxSize)
+    {
+        byte[] data;
+        using (var crypto = RandomNumberGenerator.Create())
         {
-            using var crypto = RandomNumberGenerator.Create();
-            byte[] key = new byte[keyLength];
-            crypto.GetBytes(key);
-            return key;
+            data = new byte[maxSize];
+            crypto.GetBytes(data);
         }
-
-        private static readonly char[] Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
-
-        public const int MaxSqlKey = 900;
-
-        public static string GetUniqueKey(int maxSize)
+        var result = new StringBuilder(maxSize);
+        foreach (var b in data)
         {
-            byte[] data;
-            using (var crypto = RandomNumberGenerator.Create())
-            {
-                data = new byte[maxSize];
-                crypto.GetBytes(data);
-            }
-            var result = new StringBuilder(maxSize);
-            foreach (var b in data)
-            {
-                result.Append(Chars[b % (Chars.Length)]);
-            }
-            return result.ToString();
+            result.Append(Chars[b % (Chars.Length)]);
         }
+        return result.ToString();
     }
 }
