@@ -8,4 +8,4 @@ Makes it easy to use RSA public/private key certificate based encryption, and AE
 Ideally you will use rotating RSA based encryption to encrypt AES keys. In a multitenant scenario, you would use AES encryption keys for each tenant, and you'd use RSA certificate based encrption in order to secure those AES keys. AES has a higher throughput for mass encryption, whereas RSA is ideal for securiing encryption keys. 
 
 ## History: 
-We used a port of this library extensively at NewsGator and Sitrion, and have maintained it as open source. It was renamed and ported to .NET 6 in 2022. 
+This is a fork of https://github.com/danlarson/sitrion.security which I've created and maintained as open source before adopting in my former workplace. It was renamed and ported to .NET 6 in 2022 and updated to .NET 7 in 2023. 
